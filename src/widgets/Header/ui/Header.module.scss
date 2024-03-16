@@ -17,20 +17,25 @@
     justify-content: space-between;
 }
 
-.block {
+.navList {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 32px;
 }
 
-.blockItem {
-    margin-right: 24px;
-
-    &:last-child {
-        margin-right: 0;
-    }
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
 }
 
-.logoIcon {
-    fill: var(--s-primery-c);
+.navText {
+    color: rgb(92, 92, 92);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0%;
+    text-align: left;
+    align-self: flex-end;
 }

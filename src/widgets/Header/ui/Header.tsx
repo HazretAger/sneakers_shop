@@ -1,10 +1,9 @@
-import { Menu } from '@/features/Menu';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Wrapper } from '@/shared/ui/Wrapper';
-import { LogoutButton } from '@/features/Auth';
-import { ThemeButton } from '@/features/ThemeButton';
-import { SideMenuButton } from '@/features/SideMenu';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import User from '@/shared/assets/icons/user.svg?react'
+import Cart from '@/shared/assets/icons/cart.svg?react'
+import Favorite from '@/shared/assets/icons/favorite.svg?react'
 import Logo from '@/shared/assets/icons/logo.svg?react';
 import cls from './Header.module.scss';
 
@@ -21,11 +20,19 @@ export const Header = (props: HeaderProps) => {
                     <div className={cls.logo}>
                         <AppLink to="/" icon={<Logo className={cls.logoIcon} />} />
                     </div>
-                    <div className={cls.block}>
-                        <Menu />
-                        <LogoutButton />
-                        <SideMenuButton />
-                        <ThemeButton />
+                    <div className={cls.navList}>
+                        <div className={cls.navItem}>
+                            <Cart />
+                            <p className={cls.navText}>1205 руб.</p>
+                        </div>
+                        <div className={cls.navItem}>
+                            <Favorite />
+                            <p className={cls.navText}>Закладки</p>
+                        </div>
+                        <div className={cls.navItem}>
+                            <User />
+                            <p className={cls.navText}>Профиль</p>
+                        </div>
                     </div>
                 </div>
             </Wrapper>

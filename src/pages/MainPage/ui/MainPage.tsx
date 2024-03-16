@@ -1,13 +1,12 @@
 import { Wrapper } from '@/shared/ui/Wrapper';
-import { EditPostModal, PostList } from '@/widgets/Post';
-import { CreatePost } from '@/features/Post/ui/CreatePost/CreatePost';
+import { MainLayout } from '@/app/layouts/MainLayout';
+import { GoodCard } from '@/entities/Good';
 
 const MainPage = () => {
     return (
         <Wrapper>
-            <CreatePost />
-            <PostList />
-            <EditPostModal />
+            <MainLayout />
+            <GoodCard />
         </Wrapper>
     );
 };
