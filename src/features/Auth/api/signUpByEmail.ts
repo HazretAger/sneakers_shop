@@ -9,8 +9,8 @@ type LoginResponse = {
     token: string;
 };
 
-export const signInByEmail = async (authData: LoginProps) => {
-    const { data } = await $api.post<LoginResponse>(`/auth`, authData);
+export const signUpByEmail = async (authData: LoginProps) => {
+    const { data } = await $api.post<LoginResponse>(`/register`, authData);
 
     return data;
 };

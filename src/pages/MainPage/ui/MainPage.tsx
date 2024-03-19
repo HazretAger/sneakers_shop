@@ -1,12 +1,10 @@
 import { Wrapper } from '@/shared/ui/Wrapper';
-import { MainLayout } from '@/app/layouts/MainLayout';
-import { GoodCard } from '@/entities/Good';
+import { GoodList } from '@/widgets/GoodList/ui/GoodList';
 
 const MainPage = () => {
     return (
         <Wrapper>
-            <MainLayout />
-            <GoodCard />
+            <GoodList />
         </Wrapper>
     );
 };

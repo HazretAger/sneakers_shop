@@ -3,18 +3,18 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { HInput } from '@/shared/ui/FormComponents';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useSignInByEmail } from '../../lib/query/useSignInByEmail';
+import { useSignInUpEmail } from '../../lib/query/useSignUpByEmail';
 import Button from '@mui/material/Button';
-import cls from './AuthByEmail.module.scss';
+import cls from './RegByEmail.module.scss';
 
-const AuthByEmailSchema = z.object({
+const RegByEmailSchema = z.object({
     email: z.string().email('email написан некоректно'),
     password: z.string().min(5, { message: 'Введите не менее 5 символов' }),
 });
 
-export type AuthByEmailType = z.infer<typeof AuthByEmailSchema>;
+export type RegByEmailType = z.infer<typeof RegByEmailSchema>;
 
-interface AuthByEmailProps {
+interface RegByEmailProps {
     className?: string;
 }
 
@@ -23,18 +23,18 @@ const defaultValues = {
     password: '',
 };
 
-export const AuthByEmail = (props: AuthByEmailProps) => {
+export const RegByEmail = (props: RegByEmailProps) => {
     const { className } = props;
-    const { mutate: onAuth, isPending } = useSignInByEmail();
+    const { mutate: onAuth, isPending } = useSignInUpEmail();
 
-    const methods = useForm<AuthByEmailType>({
+    const methods = useForm<RegByEmailType>({
         defaultValues,
-        resolver: zodResolver(AuthByEmailSchema),
+        resolver: zodResolver(RegByEmailSchema),
     });
 
     const { handleSubmit } = methods;
 
-    const submitHandler = async (loginData: AuthByEmailType) => {
+    const submitHandler = async (loginData: RegByEmailType) => {
         onAuth(loginData);
     };
 
@@ -53,7 +53,7 @@ export const AuthByEmail = (props: AuthByEmailProps) => {
                         placeholder="Введите пароль"
                         type="password"
                     />
-                    <Button variant="contained" type="submit" size="large" color="success">Войти</Button>
+                    <Button variant="contained" type="submit" size="large">Зарегистрироваться</Button>
                 </form>
             </FormProvider>
         </div>

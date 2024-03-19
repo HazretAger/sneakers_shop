@@ -1,14 +1,13 @@
 import { Wrapper } from '@/shared/ui/Wrapper';
-import { AuthByEmail } from '@/features/Auth';
+import { Authentication } from '@/widgets/Authentication';
 import cls from './LoginPage.module.scss';
 
 const LoginPage = () => {
     return (
-        <div>
+        <div className={cls.LoginPage}>
             <Wrapper>
                 <div className={cls.formBlock}>
-                    <h2 className={cls.title}>Авторизация</h2>
-                    <AuthByEmail />
+                    <Authentication />
                 </div>
             </Wrapper>
         </div>
