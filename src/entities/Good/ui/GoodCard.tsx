@@ -1,15 +1,16 @@
+import { ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { IGood } from '../model/types/goodType';
-import Button from '@mui/material/Button';
 import cls from './GoodCard.module.scss';
 
 interface GoodCardProps {
     className?: string;
     good: IGood;
+    actionButtons: ReactNode
 }
 
 export const GoodCard = (props: GoodCardProps) => {
-    const { className, good } = props;
+    const { className, good, actionButtons } = props;
     const { name, description, price, img } = good;
 
     return (
@@ -23,11 +24,9 @@ export const GoodCard = (props: GoodCardProps) => {
                     <div className={cls.block}>
                         <div className={cls.priceBlock}>
                             <p className={cls.priceName}>Цена:</p>
-                            <p className={cls.price}>{price}</p>
+                            <p className={cls.price}>{price} руб</p>
                         </div>
-                        <Button variant="contained" type="submit" size="small">
-                            Купить
-                        </Button>
+                        { actionButtons }
                     </div>
                 </div>
             </div>

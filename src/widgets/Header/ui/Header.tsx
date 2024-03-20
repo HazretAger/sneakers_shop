@@ -1,6 +1,7 @@
 import { AppLink } from '@/shared/ui/AppLink';
 import { Wrapper } from '@/shared/ui/Wrapper';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useCartStore } from '@/features/Cart';
 import User from '@/shared/assets/icons/user.svg?react'
 import Cart from '@/shared/assets/icons/cart.svg?react'
 import Favorite from '@/shared/assets/icons/favorite.svg?react'
@@ -12,6 +13,7 @@ interface HeaderProps {
 }
 export const Header = (props: HeaderProps) => {
     const { className } = props;
+    const totalSum = useCartStore((state) => state.totalSum)
 
     return (
         <header className={classNames(cls.Header, {}, [className])}>
@@ -23,7 +25,7 @@ export const Header = (props: HeaderProps) => {
                     <div className={cls.navList}>
                         <div className={cls.navItem}>
                             <Cart />
-                            <p className={cls.navText}>1205 руб.</p>
+                            <p className={cls.navText}>{ totalSum } руб.</p>
                         </div>
                         <div className={cls.navItem}>
                             <Favorite />

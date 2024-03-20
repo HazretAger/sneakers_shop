@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useEffect } from 'react';
+import { BuyGoodButton } from '@/features/Good';
 import { GoodCard } from '@/entities/Good';
 import { useFetchGoods } from '@/entities/Good/lib/query/useFetchGoods';
 import cls from './GoodList.module.scss';
@@ -26,6 +26,7 @@ export const GoodList = (props: GoodListProps) => {
                 <GoodCard
                     key={good.id}
                     good={good}
+                    actionButtons={<BuyGoodButton good={good} />}
                 />
             ))}
         </div>
